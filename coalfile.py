@@ -20,6 +20,7 @@ class LuasocketFile(CoalFile):
         # cp('build/include', 'include')
         # cp('build/*.a', 'libs/')
         # cp('build/*.lib', 'libs/')
+        pass
     def info(self, generator):
         # generator.add_library("-lglad")
         # generator.add_link_dir('libs/')
