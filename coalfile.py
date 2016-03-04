@@ -17,12 +17,11 @@ class LuasocketFile(CoalFile):
         lua_include_dir = self.generator.include_dirs[0] # only one dependency so first index
         default_cmake_build('src/', 'build/', '-DLUA_INCLUDE_DIR="%s"' % lua_include_dir)
     def package(self):
-        # cp('build/include', 'include')
-        # cp('build/*.a', 'libs/')
-        # cp('build/*.lib', 'libs/')
-        pass
+        cp('src/src/*.h', 'include/')
+        cp('build/src/*.a', 'libs/')
+        cp('build/src/unix/*.a', 'libs/')
+        cp('build/src/*.lib', 'libs/')
     def info(self, generator):
-        # generator.add_library("-lglad")
-        # generator.add_link_dir('libs/')
-        # generator.add_include_dir('include/')
-        pass
+        generator.add_library("-lluasocket")
+        generator.add_link_dir('libs/')
+        generator.add_include_dir('include/')
