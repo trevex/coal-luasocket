@@ -1,5 +1,5 @@
 from coal import CoalFile
-from util import git_clone, download, unzip, default_cmake_build, cp
+from util import git_clone, download, unzip, default_cmake_build, cp, system
 from os import path
 
 class LuasocketFile(CoalFile):
@@ -22,6 +22,9 @@ class LuasocketFile(CoalFile):
         cp('build/src/unix/*.a', 'libs/')
         cp('build/src/*.lib', 'libs/')
     def info(self, generator):
+        libs = "-lluasocket"
+        if system() == 'Windows':
+            libs += " -lws2_32"
         generator.add_library("-lluasocket")
         generator.add_link_dir('libs/')
         generator.add_include_dir('include/')
