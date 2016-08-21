@@ -17,7 +17,7 @@ class LuasocketFile(CoalFile):
         lua_include_dir = self.generator.include_dirs[0] # only one dependency so first index
         default_cmake_build('src/', 'build/', '-DLUA_INCLUDE_DIR="%s"' % lua_include_dir)
     def package(self):
-        cp('src/src/*.h', 'include/')
+        cp('src/src/*.h', 'include/luasocket/')
         cp('build/src/*.a', 'libs/')
         cp('build/src/unix/*.a', 'libs/')
         cp('build/src/*.lib', 'libs/')
