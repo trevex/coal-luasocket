@@ -25,6 +25,6 @@ class LuasocketFile(CoalFile):
         libs = "-lluasocket"
         if system() == 'Windows':
             libs += " -lws2_32"
-        generator.add_library("-lluasocket")
+        generator.add_library(libs)
         generator.add_link_dir('libs/')
         generator.add_include_dir('include/')
